@@ -31,7 +31,9 @@ func (p *BufoProvider) Resources(ctx context.Context) []func() resource.Resource
 }
 
 func (p *BufoProvider) Actions(ctx context.Context) []func() action.Action {
-	return []func() action.Action{}
+	return []func() action.Action{
+		NewPrintBufo,
+	}
 }
 
 func (p *BufoProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
