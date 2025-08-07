@@ -11,8 +11,6 @@ description: |-
 The bufo provider has an action that can be used to print out a bufo image as ASCII art.
 You can print a specific bufo by using one of the file names in this repo: https://github.com/austinvalle/terraform-provider-bufo/tree/main/internal/provider/bufos.
 
-If no `name` is provided, a random bufo will be printed.
-
 ```terraform
 terraform {
   required_providers {
@@ -35,5 +33,30 @@ action "bufo_print" "success" {
   config {
     name = "bufo-the-builder"
   }
+}
+```
+
+If no `name` is provided, a random bufo will be printed. You can set `color` to `true`, if your terminal supports it, for a colorized bufo.
+
+```terraform
+terraform {
+  required_providers {
+    bufo = {
+      source = "austinvalle/bufo"
+    }
+  }
+}
+
+resource "terraform_data" "test" {
+  lifecycle {
+    action_trigger {
+      events  = [after_create]
+      actions = [action.bufo_print.success]
+    }
+  }
+}
+
+action "bufo_print" "success" {
+  config { color = true } # random colorized bufo
 }
 ```

@@ -42,6 +42,10 @@ func (a *printBufo) Schema(ctx context.Context, req action.SchemaRequest, resp *
 				Description: "The ratio to scale the width/height of the bufo from the original, defaults to 0.5",
 				Optional:    true,
 			},
+			"color": schema.BoolAttribute{
+				Description: "Color the printed bufo, defaults to false",
+				Optional:    true,
+			},
 		},
 	}
 }
@@ -98,10 +102,16 @@ func (a *printBufo) Invoke(ctx context.Context, req action.InvokeRequest, resp *
 		ratio = config.Ratio.ValueFloat64()
 	}
 
+	colored := false
+	if !config.Color.IsNull() {
+		colored = config.Color.ValueBool()
+	}
+
 	bufoAscii := converter.Image2ASCIIString(img, &convert.Options{
 		Ratio:       ratio,
 		FixedWidth:  -1,
 		FixedHeight: -1,
+		Colored:     colored,
 	})
 
 	resp.SendProgress(action.InvokeProgressEvent{
@@ -112,4 +122,5 @@ func (a *printBufo) Invoke(ctx context.Context, req action.InvokeRequest, resp *
 type printBufoModel struct {
 	Name  types.String  `tfsdk:"name"`
 	Ratio types.Float64 `tfsdk:"ratio"`
+	Color types.Bool    `tfsdk:"color"`
 }

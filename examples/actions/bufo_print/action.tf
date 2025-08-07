@@ -16,5 +16,5 @@ resource "terraform_data" "test" {
 }
 
 action "bufo_print" "success" {
-  config {} # random bufo
+  config { color = true } # random colorized bufo
 }
