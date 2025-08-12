@@ -29,21 +29,22 @@ func (a *printBufo) Metadata(ctx context.Context, req action.MetadataRequest, re
 
 func (a *printBufo) Schema(ctx context.Context, req action.SchemaRequest, resp *action.SchemaResponse) {
 	resp.Schema = schema.UnlinkedSchema{
-		Description: "Prints an ASCII bufo",
+		Description: "Prints a bufo image as ASCII art. List of available bufos found at: https://github.com/austinvalle/terraform-provider-bufo/tree/main/internal/provider/bufos",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
-				Description: "Name of the bufo to print, see: https://bufo.zone/. If no name is provided, a random bufo will be selected!",
-				Optional:    true,
+				Description: "Name of the bufo to print (for example: `bufo-the-builder`), [see the github repo](https://github.com/austinvalle/terraform-provider-bufo/tree/main/internal/provider/bufos) for a list of bufos. " +
+					"If no name is provided, a random bufo will be selected.",
+				Optional: true,
 				Validators: []validator.String{
 					ValidBufoName(),
 				},
 			},
 			"ratio": schema.Float64Attribute{
-				Description: "The ratio to scale the width/height of the bufo from the original, defaults to 0.5",
+				Description: "The ratio to scale the width/height of the bufo from the original, defaults to 0.5.",
 				Optional:    true,
 			},
 			"color": schema.BoolAttribute{
-				Description: "Color the printed bufo, defaults to false",
+				Description: "Color the printed bufo, defaults to false.",
 				Optional:    true,
 			},
 		},
