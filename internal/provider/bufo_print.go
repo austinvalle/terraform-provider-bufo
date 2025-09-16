@@ -28,7 +28,7 @@ func (a *printBufo) Metadata(ctx context.Context, req action.MetadataRequest, re
 }
 
 func (a *printBufo) Schema(ctx context.Context, req action.SchemaRequest, resp *action.SchemaResponse) {
-	resp.Schema = schema.UnlinkedSchema{
+	resp.Schema = schema.Schema{
 		Description: "Prints a bufo image as ASCII art. List of available bufos found at: https://github.com/austinvalle/terraform-provider-bufo/tree/main/internal/provider/bufos",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
