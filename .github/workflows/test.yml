@@ -39,7 +39,7 @@ jobs:
           cache: true
       - uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3.1.2
         with:
-          terraform_version: '1.14.0-alpha20250806'
+          terraform_version: '1.14.0-alpha20250911'
           terraform_wrapper: false
       - run: make generate
       - name: git diff
