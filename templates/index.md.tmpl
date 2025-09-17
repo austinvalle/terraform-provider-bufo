@@ -6,8 +6,6 @@ description: |-
 
 # Bufo Provider
 
--> **Note:** Use at least Terraform [`v1.14.0-alpha20250806`](https://github.com/hashicorp/terraform/releases/tag/v1.14.0-alpha20250806) for running action examples.
-
 The bufo provider has an action that can be used to print out a bufo image as ASCII art.
 You can print a specific bufo by using one of the file names (minus the extension) in this repo: https://github.com/austinvalle/terraform-provider-bufo/tree/main/internal/provider/bufos.
 
