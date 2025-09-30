@@ -43,7 +43,7 @@ func (r *bufo) IdentitySchema(_ context.Context, _ resource.IdentitySchemaReques
 }
 
 func (r *bufo) Create(ctx context.Context, req resource.CreateRequest, resp *resource.CreateResponse) {
-	resp.Diagnostics.AddError("TODO", "implement me")
+	resp.Diagnostics.AddError("Create Not Implemented", "The bufo_bufo resource is currently just a stub implementation for demonstrating list functionality")
 }
 
 func (r *bufo) Read(ctx context.Context, req resource.ReadRequest, resp *resource.ReadResponse) {
