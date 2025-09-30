@@ -55,5 +55,5 @@ func (r *bufo) Update(ctx context.Context, req resource.UpdateRequest, resp *res
 }
 
 func (r *bufo) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {
-	resp.Diagnostics.AddError("TODO", "implement me")
+	resp.Diagnostics.AddError("Delete Not Implemented", "The bufo_bufo resource is currently just a stub implementation for demonstrating list functionality")
 }
