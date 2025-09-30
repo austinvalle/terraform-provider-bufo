@@ -12,8 +12,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
-	"github.com/hashicorp/terraform-plugin-go/tfprotov5"
-	"github.com/hashicorp/terraform-plugin-go/tftypes"
 )
 
 var _ list.ListResource = (*listBufos)(nil)
@@ -27,33 +25,6 @@ type listBufos struct{}
 func (l *listBufos) Metadata(_ context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
 	// This is bufo_bufo... :upside_down_face:
 	resp.TypeName = req.ProviderTypeName + "_bufo"
-}
-
-func (l *listBufos) RawV5Schemas(_ context.Context, _ list.RawV5SchemaRequest, resp *list.RawV5SchemaResponse) {
-	resp.ProtoV5Schema = &tfprotov5.Schema{
-		Version: 1,
-		Block: &tfprotov5.SchemaBlock{
-			Attributes: []*tfprotov5.SchemaAttribute{
-				{
-					Name:        "name",
-					Type:        tftypes.String,
-					Required:    true,
-					Description: "The name of the bufo.",
-				},
-			},
-		},
-	}
-	resp.ProtoV5IdentitySchema = &tfprotov5.ResourceIdentitySchema{
-		Version: 1,
-		IdentityAttributes: []*tfprotov5.ResourceIdentitySchemaAttribute{
-			{
-				Name:              "name",
-				Type:              tftypes.String,
-				RequiredForImport: true,
-				Description:       "The name of the bufo.",
-			},
-		},
-	}
 }
 
 func (l *listBufos) ListResourceConfigSchema(_ context.Context, _ list.ListResourceSchemaRequest, resp *list.ListResourceSchemaResponse) {

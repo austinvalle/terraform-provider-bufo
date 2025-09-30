@@ -1,4 +1,4 @@
-list "bufo_bufos" "test" {
+list "bufo_bufo" "test" {
   provider = bufo
 
   include_resource = true

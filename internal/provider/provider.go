@@ -30,7 +30,7 @@ func (p *BufoProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 
 func (p *BufoProvider) Resources(ctx context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
-		NewBufoResource,
+		NewBufo,
 	}
 }
 

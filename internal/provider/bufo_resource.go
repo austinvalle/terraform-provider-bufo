@@ -12,7 +12,7 @@ var _ resource.ResourceWithIdentity = (*bufo)(nil)
 
 type bufo struct{}
 
-func NewBufoResource() resource.Resource {
+func NewBufo() resource.Resource {
 	return &bufo{}
 }
 
