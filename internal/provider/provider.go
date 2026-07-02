@@ -5,14 +5,12 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-framework/action"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
-	"github.com/hashicorp/terraform-plugin-framework/list"
 	"github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 )
 
 var _ provider.Provider = &BufoProvider{}
 var _ provider.ProviderWithActions = &BufoProvider{}
-var _ provider.ProviderWithListResources = &BufoProvider{}
 
 type BufoProvider struct{}
 
@@ -37,12 +35,6 @@ func (p *BufoProvider) Resources(ctx context.Context) []func() resource.Resource
 func (p *BufoProvider) Actions(ctx context.Context) []func() action.Action {
 	return []func() action.Action{
 		NewPrintBufo,
-	}
-}
-
-func (p *BufoProvider) ListResources(ctx context.Context) []func() list.ListResource {
-	return []func() list.ListResource{
-		NewListBufos,
 	}
 }
 
