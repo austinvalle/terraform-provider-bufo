@@ -1,0 +1,18 @@
+{
+  "tasks": {
+    "dev": "deno run -A src/main.ts",
+    "check": "deno check src/main.ts",
+    "gen-proto": "deno run -A scripts/gen-proto.ts",
+    "compile": "deno compile --allow-all --target x86_64-apple-darwin --output ./bin/terraform-provider-bufo src/main.ts"
+  },
+  "imports": {
+    "@grpc/grpc-js": "npm:@grpc/grpc-js@^1.14.0",
+    "@peculiar/x509": "npm:@peculiar/x509@^2.0.0",
+    "@msgpack/msgpack": "npm:@msgpack/msgpack@^3.0.0",
+    "reflect-metadata": "npm:reflect-metadata@^0.2.0"
+  },
+  "compilerOptions": {
+    "strict": true,
+    "lib": ["deno.ns", "dom"]
+  }
+}
