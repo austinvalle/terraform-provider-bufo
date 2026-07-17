@@ -1,1 +1,0 @@
-PNGs sourced from: https://github.com/knobiknows/all-the-bufo/tree/main/all-the-bufo
